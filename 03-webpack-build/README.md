@@ -71,6 +71,14 @@ module.exports = {
 }
 
 ```
+* 修改package.json中的script命令
+```js
+"scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js"
+  },
+``` 
 
-
-# 
+# 注意
+* 如果安装的webpack依赖包时使用最新的，可能会不兼容
+* 使用`npm init -y`初始化package.json时，如果项目名中有中文，会导致初始化不成功
