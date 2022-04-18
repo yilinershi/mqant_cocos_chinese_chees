@@ -2,7 +2,7 @@ syntax = "proto3";
 package pb;
 
 //性别
-enum EnumSex
+enum Sex
 { 
     Unknow = 0; 
 	Male=1;
