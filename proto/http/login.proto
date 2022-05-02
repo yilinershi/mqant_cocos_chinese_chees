@@ -1,0 +1,36 @@
+syntax = "proto3";
+package pb_login;
+option go_package = "server/pb/http/pb_login"; //生成go文件时的路径
+import "common/enum.proto";
+
+service Login {
+  rpc LoginHandle(LoginReq) returns (LoginResp){}
+}
+
+//登录
+message LoginReq {
+  string AppID = 1;     //用户来自于哪一个应用
+  string ChannelID = 2; //用户来自于哪一个渠道
+  string IMEI = 3;
+  Device Device = 4;
+}
+
+message Device {
+  string OS = 1;       // os版本号
+  string Model = 2;    //硬件型号
+  string IP = 3;       //内网IP
+  string RemoteIP = 4; //外网IP
+}
+
+message LoginResp {
+  pb_enum.ErrorCode Code = 1;
+  string Name = 2;
+  int64 Uid = 3;
+  string HeadUrl = 4;
+  int64 Score = 5;
+  pb_enum.Sex Sex = 6;
+  string IP = 7;
+  int64 Port = 8;
+}
+
+
